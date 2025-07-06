@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Ota Market - Premium Groceries in Uzbekistan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .hero-pattern {
+            background-image: url('https://images.unsplash.com/photo-1606787366852-de278663ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category-btn.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+        
+        .cart-item:hover {
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-blue-600 text-white py-2 px-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-phone-alt"></i>
+            <span>+998 94 791 33 35</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="hover:text-blue-200"><i class="fas fa-map-marker-alt"></i> Namangan uychi</a>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-user"></i>
+                <span>Account</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-language"></i>
+                <span>Uzbek / English</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://via.placeholder.com/50" alt="Ibrahim Ota Market Logo" class="h-12 w-12 rounded-full">
+                <h1 class="text-2xl font-bold text-blue-600">Ibrahim Ota Market</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2 flex-1 mx-8">
+                <input type="text" placeholder="Search for products..." class="bg-transparent border-none outline-none w-full">
+                <button class="text-gray-500"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <i class="fas fa-heart text-xl text-gray-700"></i>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+                <button id="cart-btn" class="relative">
+                    <i class="fas fa-shopping-cart text-xl text-gray-700"></i>
+                    <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                </button>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Search -->
+        <div class="md:hidden px-4 pb-4">
+            <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+                <input type="text" placeholder="Search for products..." class="bg-transparent border-none outline-none w-full">
+                <button class="text-gray-500"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 overflow-x-auto">
+            <div class="flex space-x-6 whitespace-nowrap">
+                <a href="#" class="text-blue-600 font-medium">Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Fruits & Vegetables</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Dairy & Eggs</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Meat & Fish</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Bakery</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Beverages</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Snacks</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Household</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Special Offers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern bg-blue-900 bg-opacity-50 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Fresh Groceries Delivered to Your Door</h1>
+                <p class="text-xl mb-8">Shop the finest selection of Uzbek and international products at Ibrahim Ota Market</p>
+                <button class="bg-white text-blue-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300">Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="flex items-center space-x-4 p-4 border rounded-lg">
+                    <div class="text-blue-600 text-3xl">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Free Delivery</h3>
+                        <p class="text-gray-600 text-sm">For orders over 200,000 UZS</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border rounded-lg">
+                    <div class="text-blue-600 text-3xl">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Easy Returns</h3>
+                        <p class="text-gray-600 text-sm">Within 7 days</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border rounded-lg">
+                    <div class="text-blue-600 text-3xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Quality Guarantee</h3>
+                        <p class="text-gray-600 text-sm">Fresh products daily</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border rounded-lg">
+                    <div class="text-blue-600 text-3xl">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">24/7 Support</h3>
+                        <p class="text-gray-600 text-sm">Dedicated support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">Shop by Category</h2>
+                <a href="#" class="text-blue-600 hover:underline">View All</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3082/3082383.png" alt="Fruits" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Fruits</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2329/2329909.png" alt="Vegetables" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Vegetables</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2515/2515183.png" alt="Dairy" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Dairy & Eggs</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Meat" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Meat & Fish</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1069/1069030.png" alt="Bakery" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Bakery</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-sm p-4 text-center hover:shadow-md transition duration-300">
+                    <div class="h-20 mx-auto mb-2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3058/3058972.png" alt="Beverages" class="h-full w-auto mx-auto">
+                    </div>
+                    <h3 class="font-medium">Beverages</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">Popular Products</h2>
+                <div class="flex space-x-2">
+                    <button class="category-btn active px-4 py-2 rounded-full">All</button>
+                    <button class="category-btn px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200">Fruits</button>
+                    <button class="category-btn px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200">Vegetables</button>
+                    <button class="category-btn px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200">Dairy</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm p-4 transition duration-300">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfd499?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Apples" class="w-full h-40 object-contain">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">-15%</div>
+                    </div>
+                    <h3 class="font-medium mb-1">Fresh Apples</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(24)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-gray-500 line-through text-sm">25,000 UZS</span>
+                            <p class="font-bold text-blue-600">21,250 UZS</p>
+                        </div>
+                        <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm p-4 transition duration-300">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53fccaba963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Tomatoes" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="font-medium mb-1">Local Tomatoes</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(18)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-bold text-blue-600">15,000 UZS/kg</p>
+                        </div>
+                        <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm p-4 transition duration-300">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Milk" class="w-full h-40 object-contain">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">New</div>
+                    </div>
+                    <h3 class="font-medium mb-1">Fresh Milk 1L</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(32)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-bold text-blue-600">12,500 UZS</p>
+                        </div>
+                        <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm p-4 transition duration-300">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1603048719539-6d7a3c616063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Bread" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="font-medium mb-1">Traditional Non</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(45)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-bold text-blue-600">5,000 UZS</p>
+                        </div>
+                        <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm p-4 transition duration-300">
+                    <div class="relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1603569283847-aa6f0c5a9c3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Eggs" class="w-full h-40 object-contain">
+                    </div>
+                    <h3 class="font-medium mb-1">Farm Eggs (10pcs)</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(29)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-bold text-blue-600">18,000 UZS</p>
+                        </div>
+                        <button class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Uzbek Specialties -->
+    <section class="py-12 bg-blue-50">
+        <div clas
